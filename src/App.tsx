@@ -30,7 +30,7 @@ const Headliner = () => (
     <h2 className="headliner-title">High Seas</h2>
     <p className="headliner-content">
       Teen coder community Hackclub has launched their new big YSWS, High Seas, where you can
-      turn hours coded into real-world rewards. I'm participating, are you? (Also,
+      turn hours coded into real-world rewards. Go sign up if you're a teen, or if you aren't consider donating! (Also,
       I'm uploading this page to High Seas, so hi if you're coming from there!)
     </p>
     <a href="https://highseas.hackclub.com" target="_blank" className="read-more">Learn More</a>
@@ -40,7 +40,7 @@ const Headliner = () => (
 const Article = ({ title, content }) => (
   <article className="article">
     <h3 className="article-title">{title}</h3>
-    <p className="article-content">{content}</p>
+    <div className="article-content">{content}</div>
   </article>
 )
 
@@ -137,11 +137,12 @@ export default function App() {
         <div className="column">
           <Article
             title="About Me"
-            content="John Doe is a passionate full-stack developer with over 5 years of experience in creating robust and scalable web applications. With a keen eye for detail and a love for clean code, John has been at the forefront of several groundbreaking projects in the tech industry."
+            content="I'm Ben, I'm a 17-year-old computer science student from England. Despite my rural upbringing, I've always been fascinated by technology and the internet. I'm passionate about coding and trying to help make a difference. I'm currently studying Computer Science at A-Level and I'm looking forward to studying onwards at university."
           />
           <Article
             title="My Skills"
-            content="Proficient in JavaScript, React, Node.js, and Python. Experienced in database management with MongoDB and PostgreSQL. Strong understanding of RESTful APIs and GraphQL. Skilled in DevOps practices including CI/CD pipelines and containerization with Docker."
+            content="My biggest skills are with frontend web development (HTML, CSS, JS, React, Vite, etc.), but I also have skills in Python, Java, C# (especially with .NET and WinUI), and Google Cloud.
+              I'm also a proficient user of Adobe's Creative Cloud, with experience in Photoshop, InDesign, XD, and Premiere Pro. I also have experience with KiCad and Unity."
           />
         </div>
         <div className="column">
@@ -153,21 +154,20 @@ export default function App() {
         content={
           <div>
             <div className="project-item">
-              <p className="project-title">TaskMaster Pro</p>
-              <p>Revolutionary productivity app</p>
-              <p>Over 100,000 active users!</p>
+              <p className="project-title">Coming Soon...</p>
+              {/*<p>Revolutionary productivity app</p>
+              <p>Over 100,000 active users!</p>*/}
             </div>
-            <hr className="project-divider" />
+          </div>
+        }
+      />
+      <AdSection
+        title="My Blog"
+        content={
+          <div>
             <div className="project-item">
-              <p className="project-title">CodeConnect</p>
-              <p>Collaborate on coding challenges</p>
-              <p>Join the community today!</p>
-            </div>
-            <hr className="project-divider" />
-            <div className="project-item">
-              <p className="project-title">DataViz</p>
-              <p>Powerful data visualization library</p>
-              <p>Used by Fortune 500 companies</p>
+              <p className="project-title">Also Coming Soon...</p>
+              <p>Gotta start somewhere, right?</p>
             </div>
           </div>
         }
