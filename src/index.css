@@ -1,0 +1,276 @@
+body {
+    background-color: #f7eedb;
+    color: #5E2605;
+    font-family: Georgia, serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    border-bottom: 3px double #704214;
+    padding: 20px 0;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.header-title {
+    font-size: 48px;
+    margin: 0;
+    color: #704214;
+    position: relative;
+}
+
+.header-title::after {
+    content: 'Ben.JS';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: changeText 8s infinite;
+}
+
+@keyframes changeText {
+    0%,
+    45%,
+    100% {
+        content: 'Ben.JS';
+        opacity: 1;
+    }
+    50%,
+    95% {
+        content: 'Ben J. Smith';
+        opacity: 1;
+    }
+    47%,
+    97% {
+        opacity: 0;
+    }
+}
+
+.header-subtitle {
+    margin: 10px 0 0;
+    color: #704214;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headliner {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f7eedb;
+    border: 1px solid #704214;
+    box-shadow: 5px 5px 0 #704214;
+}
+
+.headliner-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #704214;
+}
+
+.headliner-content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #5E2605;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #704214;
+    color: #f7eedb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.column {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.article {
+    margin-bottom: 20px;
+}
+
+.article-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #704214;
+}
+
+.article-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #5E2605;
+}
+
+.timeline {
+    margin-bottom: 20px;
+}
+
+.timeline-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #704214;
+}
+
+.timeline-list {
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #704214;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #f7eedb;
+    border: 2px solid #704214;
+    border-radius: 50%;
+}
+
+.timeline-item-title {
+    margin: 0;
+    color: #704214;
+}
+
+.timeline-item-content {
+    margin: 5px 0 0;
+    color: #5E2605;
+}
+
+.ad-section {
+    border: 2px solid #704214;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f7eedb;
+    box-shadow: 3px 3px 0 #704214;
+}
+
+.ad-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #704214;
+    text-align: center;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ad-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #5E2605;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+.contact-section {
+    border: 2px solid #704214;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #f7eedb;
+    box-shadow: 3px 3px 0 #704214;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #704214;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #5E2605;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    margin: 10px;
+    min-width: 200px;
+}
+
+.contact-item-title {
+    font-weight: bold;
+    color: #704214;
+}
+
+.contact-item-content {
+    color: #5E2605;
+}
+
+.contact-item-content a {
+    color: #412a13;
+    text-decoration: none;
+}
+
+.footer-socials a {
+    color: #412a13;
+    text-decoration: none;
+    margin: 0.25em;
+}
+
+.contact-footer {
+    margin-top: 20px;
+    font-style: italic;
+    color: #704214;
+}
+
+.footer {
+    border-top: 1px solid #704214;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #704214;
+    margin-top: 30px;
+}
+
+.project-item {
+    margin-bottom: 10px;
+}
+
+.project-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.project-divider {
+    margin: 10px 0;
+    border-color: #704214;
+}
