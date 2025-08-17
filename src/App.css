@@ -1,0 +1,22 @@
+body {
+  background-image: url('/nyx.webp');
+  background-color: #5c9ab7;
+  background-size: fill;
+  background-position: center;
+}
+
+#appbar {
+  z-index: 1;
+}
+
+#appbar p{
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+}
+
+#appbar p:hover{
+  background-color: #75757584;
+}
