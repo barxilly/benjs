@@ -62,7 +62,7 @@ function App() {
             style={{ cornerStyle: "squircle" }}
           />
         </Card.Section>
-        <Stack align="center" mt="md" gap={0}>
+        <Stack align="center" mt="md" gap={0} style={{userSelect:"text"}}>
           <Title order={4} style={{ fontWeight: 500 }}>
             {title}
           </Title>
@@ -116,7 +116,7 @@ function App() {
       <div className="opa" />
       <Card radius="xl" shadow="sm" className="nav-card card">
         <Flex className="nav-flex">
-          <Title className="title">BenJS</Title>
+          <Title className="title" onClick={()=>{window.location.href="/"}}>BenJS</Title>
           <Flex h="100%" justify="center" gap="sm">
             <FaGithub
               className="social"
@@ -163,10 +163,10 @@ function App() {
                 w="40%"
                 style={{ aspectRatio: "1/1" }}
               />
-              <Title style={{ fontWeight: 500 }} mt="0.6em">
+              <Title style={{ fontWeight: 500, userSelect:"text" }} mt="0.6em">
                 Ben J. Smith
               </Title>
-              <Title order={4} style={{ fontWeight: 400 }} mt={0}>
+              <Title order={4} style={{ fontWeight: 400,userSelect:"text" }} mt={0}>
                 @BenJS
               </Title>
             </Stack>
@@ -187,7 +187,7 @@ function App() {
               <Title style={{ fontWeight: 500 }} mb="0.6em">
                 About Me
               </Title>
-              <Text style={{ fontWeight: 400 }}>
+              <Text style={{ fontWeight: 400,userSelect:"text" }}>
                 Hi, I'm Ben.
                 <br />
                 I'm currently a Computing HNC student at UHI Inverness, hoping
@@ -329,6 +329,8 @@ function App() {
                   total={certs.length - 1}
                   value={page}
                   onChange={setPage}
+                  withControls={false}
+                  radius="xl"
                 />
               </Stack>
             </Card>
@@ -339,80 +341,88 @@ function App() {
             radius="xl"
             shadow="sm"
             className="card"
-            style={{ backgroundColor: "#cfe4f6ff" }}
-          ><Grid><Grid.Col span={{base:12,md:6}}>
-            <Stack align="center" p="1em" gap="1em">
-              <Title>Education</Title>
-              <Timeline active={50} radius="xl" w="100%">
-                <Timeline.Item
-                  title="HNC Computing"
-                  bullet={<FaGraduationCap />}
-                >
-                  <Text c="dimmed" size="sm">
-                    UHI Inverness (2025-Present)
-                  </Text>
-                  <Text>
-                    A Computing HNC course comprising subjects like E-commerce,
-                    Ethical Hacking, and Software Development.
-                  </Text>
-                </Timeline.Item>
-                <Timeline.Item
-                  title="A Levels"
-                  bullet={<FaBook style={{ padding: "0.1em" }} />}
-                >
-                  <Text c="dimmed" size="sm">
-                    Tavistock College (2023-2025)
-                  </Text>
-                  <Text>
-                    Passed my A Levels in Computer Science, Criminology, and
-                    Creative Media Production.
-                  </Text>
-                </Timeline.Item>
-              </Timeline>
-            </Stack></Grid.Col><Grid.Col span={{base:12,md:6}}>
-            <Stack  align="center" p="1em" gap="1em">
-              <Title>Experience</Title>
-              <Timeline active={5} radius="xl" w="100%">
-                <Timeline.Item
-                  title="Housekeeping"
-                  bullet={<FaHotel style={{ padding: "0.07em" }} />}
-                >
-                  <Text c="dimmed" size="sm">
-                    JD Wetherspoon (2025-Present)
-                  </Text>
-                  <Text>
-                    A job that requires some{" "}
-                    <b style={{ fontWeight: "550" }}>heavy</b> time-management,
-                    as well as teamworking and task managment skills
-                  </Text>
-                </Timeline.Item>
-                <Timeline.Item
-                  title="Member Pioneer"
-                  bullet={<FaPeopleGroup />}
-                >
-                  <Text c="dimmed" size="sm">
-                    Co-op Group (2023-2024)
-                  </Text>
-                  <Text>
-                    A community role in which I was working in a team to support
-                    local initiatives, connect people, and help organize events.
-                  </Text>
-                </Timeline.Item>
-                <Timeline.Item
-                  title="Web Design Work Experience"
-                  bullet={<FaPeopleGroup />}
-                >
-                  <Text c="dimmed" size="sm">
-                    Splash Damage (2022)
-                  </Text>
-                  <Text>
-                    A work experience learning how websites are designed in a
-                    production setting, and the best methods for designing for a
-                    range of users.
-                  </Text>
-                </Timeline.Item>
-              </Timeline>
-            </Stack></Grid.Col></Grid>
+            style={{ backgroundColor: "#cfe4f6ff",userSelect:"text" }}
+          >
+            <Grid>
+              <Grid.Col span={{ base: 12, md: 6 }}>
+                <Stack align="center" p="1em" gap="1em">
+                  <Title>Education</Title>
+                  <Timeline active={50} radius="xl" w="100%">
+                    <Timeline.Item
+                      title="HNC Computing"
+                      bullet={<FaGraduationCap />}
+                    >
+                      <Text c="dimmed" size="sm">
+                        UHI Inverness (2025-Present)
+                      </Text>
+                      <Text>
+                        A Computing HNC course comprising subjects like
+                        E-commerce, Ethical Hacking, and Software Development.
+                      </Text>
+                    </Timeline.Item>
+                    <Timeline.Item
+                      title="A Levels"
+                      bullet={<FaBook style={{ padding: "0.1em" }} />}
+                    >
+                      <Text c="dimmed" size="sm">
+                        Tavistock College (2023-2025)
+                      </Text>
+                      <Text>
+                        Passed my A Levels in Computer Science, Criminology, and
+                        Creative Media Production.
+                      </Text>
+                    </Timeline.Item>
+                  </Timeline>
+                </Stack>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 6 }}>
+                <Stack align="center" p="1em" gap="1em">
+                  <Title>Experience</Title>
+                  <Timeline active={5} radius="xl" w="100%">
+                    <Timeline.Item
+                      title="Housekeeping"
+                      bullet={<FaHotel style={{ padding: "0.07em" }} />}
+                    >
+                      <Text c="dimmed" size="sm">
+                        JD Wetherspoon (2025-Present)
+                      </Text>
+                      <Text>
+                        A job that requires some{" "}
+                        <b style={{ fontWeight: "550" }}>heavy</b>{" "}
+                        time-management, as well as teamworking and task
+                        managment skills
+                      </Text>
+                    </Timeline.Item>
+                    <Timeline.Item
+                      title="Member Pioneer"
+                      bullet={<FaPeopleGroup />}
+                    >
+                      <Text c="dimmed" size="sm">
+                        Co-op Group (2023-2024)
+                      </Text>
+                      <Text>
+                        A community role in which I was working in a team to
+                        support local initiatives, connect people, and help
+                        organize events.
+                      </Text>
+                    </Timeline.Item>
+                    <Timeline.Item
+                      title="Web Design Work Experience"
+                      bullet={<FaPeopleGroup />}
+                    >
+                      <Text c="dimmed" size="sm">
+                        Splash Damage (2022)
+                      </Text>
+                      <Text>
+                        A work experience learning how websites are designed in
+                        a production setting, and the best methods for designing
+                        for a range of users.
+                      </Text>
+                    </Timeline.Item>
+                  </Timeline>
+                </Stack>
+              </Grid.Col>
+            </Grid>
           </Card>
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>

@@ -166,7 +166,7 @@ body {
 }
 
 .card:hover {
-  transform: scale(1.01) !important;
+  transform: scale(1.005) !important;
 }
 
 .projcard:hover {
@@ -190,6 +190,10 @@ body {
   padding-right: 1.5em !important;
   scrollbar-width: thin;
   justify-content: center;
+}
+
+.mantine-Pagination-control {
+  corner-shape:squircle;
 }
 
 @media (max-width: 62em) {
