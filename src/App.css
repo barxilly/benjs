@@ -40,13 +40,49 @@ body {
   justify-content: space-between;
 }
 
+.mantine-Title-root {
+  font-weight: 500 !important;
+}
+
 .nav-flex > .title {
-  font-size: 1.7em;
-  font-weight: 550;
+  font-size: 2.2em;
+  font-weight: 550 !important;
   user-select: none;
   border-radius: 0.4em;
   padding: 0.25em 0.5em 0.25em 0.5em;
   cursor: pointer;
+}
+.nav-flex .link {
+  font-size: 1.6em;
+  font-weight: 550;
+  user-select: none;
+  border-radius: 0.7em;
+  padding: 0.8em;
+  height: 1.8em;
+  line-height: 0.1em;
+  cursor: pointer;
+  vertical-align: middle !important;
+}
+@supports (corner-shape: squircle) {
+  .nav-flex > .title {
+    font-size: 1.7em !important;
+    font-weight: 550 !important;
+    user-select: none;
+    border-radius: 0.4em;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    cursor: pointer;
+  }
+  .nav-flex .link {
+    font-size: 1.3em;
+    font-weight: 550;
+    user-select: none;
+    border-radius: 0.7em;
+    padding: 0.8em;
+    height: 1.8em;
+    line-height: 0.1em;
+    cursor: pointer;
+    vertical-align: middle !important;
+  }
 }
 
 .nav-flex > .title:hover {
@@ -101,18 +137,6 @@ body {
   align-items: center;
 }
 
-.nav-flex .link {
-  font-size: 1.3em;
-  font-weight: 550;
-  user-select: none;
-  border-radius: 0.7em;
-  padding: 0.8em;
-  height: 1.8em;
-  line-height: 0.1em;
-  cursor: pointer;
-  vertical-align: middle !important;
-}
-
 .nav-flex .link:hover {
   background-color: #dde8f055;
 }
@@ -121,6 +145,9 @@ body {
   corner-shape: squircle;
   background: #edf2f7ff;
   border: 3px solid #edf2f7ff;
+  height: 100%;
+  min-height: 0;
+   transition: all 0.8s;
 }
 
 .opa {
@@ -133,16 +160,21 @@ body {
   pointer-events: none;
 }
 
-.projcard{
+.projcard {
   transition: all 0.4s;
   cursor: pointer;
 }
 
-.projcard:hover{
+.card:hover {
+  transform: scale(1.01) !important;
+ 
+}
+
+.projcard:hover {
   transform: scale(1.05) !important;
 }
 
-.projcard:active{
+.projcard:active {
   transform: scale(0.95) !important;
 }
 
@@ -151,8 +183,10 @@ body {
   flex-direction: row;
   gap: 1.5em;
   overflow-x: auto;
+  overflow-y:visible;
   width: 100%;
-  padding-bottom: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   scrollbar-width: thin;
   scroll-snap-type: x mandatory;
   justify-content: center;

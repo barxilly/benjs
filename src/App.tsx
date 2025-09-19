@@ -1,20 +1,114 @@
 import "./App.css";
 import "@mantine/core/styles.css";
 import {
+  Button,
   Card,
+  Center,
   createTheme,
   Flex,
   Grid,
   Image,
   MantineProvider,
+  Pagination,
   Space,
   Stack,
   Text,
+  Timeline,
   Title,
 } from "@mantine/core";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import {
+  FaBook,
+  FaGithub,
+  FaGraduationCap,
+  FaHotel,
+  FaLink,
+  FaLinkedin,
+  FaPeopleGroup,
+} from "react-icons/fa6";
+import { useState } from "react";
 
 function App() {
+  const [page, setPage] = useState<any>(1);
+
+  function supportsCornerShape() {
+    return CSS.supports("corner-shape: round");
+  }
+
+  function cert(
+    title: string,
+    image: string,
+    desc: string,
+    date: string,
+    url: string
+  ) {
+    return (
+      <Card
+        radius="xl"
+        shadow="sm"
+        w="100%"
+        h="100%"
+        mah="100%"
+        className="card"
+      >
+        <Card.Section>
+          <Image
+            src={image}
+            h="15em"
+            w="100%"
+            mx="auto"
+            radius="lg"
+            style={{ cornerStyle: "squircle" }}
+          />
+        </Card.Section>
+        <Stack align="center" mt="md" gap={0}>
+          <Title order={4} style={{ fontWeight: 500 }}>
+            {title}
+          </Title>
+          <Text size="sm" c="dimmed">
+            {date}
+          </Text>
+          <Space h="sm" />
+          <Text size="md">{desc}</Text>
+          <Space h="sm" />
+          <Button
+            variant="subtle"
+            leftSection={<FaLink />}
+            onClick={() => {
+              window.open(url);
+            }}
+          >
+            View
+          </Button>
+        </Stack>
+      </Card>
+    );
+  }
+
+  const certs = [
+    [],
+    cert(
+      "GitHub Foundations",
+      "https://www.whizlabs.com/_next/image/?url=https%3A%2F%2Fmedia.whizlabs.com%2Fwebsite%2F933572060_1745566792.png&w=1200&q=75",
+      "A certification on the basics of GitHub.",
+      "March 2025 (Exp. March 2028)",
+      "https://www.credly.com/badges/f7db5bf8-c6f0-4579-af11-7422220476fc"
+    ),
+    cert(
+      "Programming with JavaScript",
+      "https://d15cw65ipctsrr.cloudfront.net/a1/f7317d59bb4e638356f6107f4ccda6/Meta-Full-Stack-Developer.png",
+      "A JavaScript programming course from Meta.",
+      "June 2025",
+      "https://www.coursera.org/account/accomplishments/verify/6J3BT01HGH10"
+    ),
+    cert(
+      "Google AI Essentials",
+      "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7cf51e188450701.65b6d6991d38d.png",
+      "A specialisation detailing the use and creation of AI.",
+      "June 2025",
+      "https://www.coursera.org/account/accomplishments/specialization/C1252NRKBJG7"
+    ),
+  ];
+
   return (
     <MantineProvider theme={createTheme({ fontFamily: "Fredoka" })}>
       <div className="opa" />
@@ -28,14 +122,18 @@ function App() {
                 window.open("https://github.com/barxilly");
               }}
             />
-            <Text
-              className="social qwkspd"
-              onClick={() => {
-                window.open("https://speed.benjs.uk");
-              }}
-            >
-              Q
-            </Text>
+            {supportsCornerShape() ? (
+              <Text
+                className="social qwkspd"
+                onClick={() => {
+                  window.open("https://speed.benjs.uk");
+                }}
+              >
+                Q
+              </Text>
+            ) : (
+              <></>
+            )}
             <FaLinkedin
               className="social"
               onClick={() => {
@@ -51,13 +149,20 @@ function App() {
       <Space h="2em" />
       <Grid m="1.5em">
         <Grid.Col span={{ base: 12, md: 6 }}>
-          <Card radius="xl" shadow="sm" className="card">
+          <Card
+            radius="xl"
+            shadow="sm"
+            className="card"
+            h="100%"
+            style={{ backgroundColor: "#e0edf9ff" }}
+          >
             <Stack align="center" pt="3em" pb="3em" gap={0}>
               <Image
                 src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png"
                 radius="50%"
-                h="40%"
+                h="auto"
                 w="40%"
+                style={{ aspectRatio: "1/1" }}
               />
               <Title style={{ fontWeight: 500 }} mt="0.6em">
                 Ben J. Smith
@@ -200,8 +305,122 @@ function App() {
             </Stack>
           </Card>
         </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 5 }}>
+          <div
+            style={{ height: "100%", display: "flex", flexDirection: "column" }}
+          >
+            <Card
+              radius="xl"
+              shadow="sm"
+              className="card"
+              style={{
+                backgroundColor: "#f3f7fbff",
+                overflow: "auto",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Stack align="center" p="1em" gap={0} style={{ flex: 1 }}>
+                <Title>Certifications</Title>
+                <Space h="md" />
+                {certs[page]}
+                <Space h="md" />
+                <Pagination
+                  total={certs.length - 1}
+                  value={page}
+                  onChange={setPage}
+                />
+              </Stack>
+            </Card>
+          </div>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 7 }}>
+          <Card
+            radius="xl"
+            shadow="sm"
+            className="card"
+            style={{ backgroundColor: "#cfe4f6ff" }}
+          >
+            <Stack align="center" p="1em" gap={0}>
+              <Title>Education + Experience</Title>
+              <Flex p="1em" w="100%" justify="space-between">
+                <Timeline active={50} radius="xl" w="50%">
+                  <Timeline.Item
+                    title="HNC Computing"
+                    bullet={<FaGraduationCap />}
+                  >
+                    <Text c="dimmed" size="sm">
+                      UHI Inverness (2025-Present)
+                    </Text>
+                    <Text>
+                      A Computing HNC course comprising subjects like
+                      E-commerce, Ethical Hacking, and Software Development.
+                    </Text>
+                  </Timeline.Item>
+                  <Timeline.Item
+                    title="A Levels"
+                    bullet={<FaBook style={{ padding: "0.1em" }} />}
+                  >
+                    <Text c="dimmed" size="sm">
+                      Tavistock College (2023-2025)
+                    </Text>
+                    <Text>
+                      Passed my A Levels in Computer Science, Criminology, and
+                      Creative Media Production.
+                    </Text>
+                  </Timeline.Item>
+                </Timeline>
+                <Timeline active={5} radius="xl" w="50%">
+                  <Timeline.Item
+                    title="Housekeeping"
+                    bullet={<FaHotel style={{ padding: "0.07em" }} />}
+                  >
+                    <Text c="dimmed" size="sm">
+                      JD Wetherspoon (2025-Present)
+                    </Text>
+                    <Text>
+                      A job that requires some{" "}
+                      <b style={{ fontWeight: "550" }}>heavy</b>{" "}
+                      time-management, as well as teamworking and task managment
+                      skills
+                    </Text>
+                  </Timeline.Item>
+                  <Timeline.Item
+                    title="Member Pioneer"
+                    bullet={<FaPeopleGroup />}
+                  >
+                    <Text c="dimmed" size="sm">
+                      Co-op Group (2023-2024)
+                    </Text>
+                    <Text>
+                      A community role in which I was working in a team to
+                      support local initiatives, connect people, and help
+                      organize events.
+                    </Text>
+                  </Timeline.Item>
+                  <Timeline.Item
+                    title="Web Design Work Experience"
+                    bullet={<FaPeopleGroup />}
+                  >
+                    <Text c="dimmed" size="sm">
+                      Splash Damage (2022)
+                    </Text>
+                    <Text>
+                      A work experience learning how websites are designed in a
+                      production setting, and the best methods for designing for
+                      a range of users.
+                    </Text>
+                  </Timeline.Item>
+                </Timeline>
+              </Flex>
+            </Stack>
+          </Card>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12 }}>
+          <Center>By BenJS</Center>
+        </Grid.Col>
       </Grid>
-      <Space h="90em" />
     </MantineProvider>
   );
 }
