@@ -26,6 +26,8 @@ import {
   FaPeopleGroup,
 } from "react-icons/fa6";
 import { useState } from "react";
+import { BsFillHeartFill } from "react-icons/bs";
+import { PiCoffeeBeanFill } from "react-icons/pi";
 
 function App() {
   const [page, setPage] = useState<any>(1);
@@ -418,7 +420,45 @@ function App() {
           </Card>
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Center>By BenJS</Center>
+          <Space h="md" />
+          <Center>
+            <Stack align="center">
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: "0.9rem",
+                  display: "inline-block",
+                }}
+              >
+                {"Made with"}{" "}
+                <BsFillHeartFill
+                  style={{
+                    color: "#d00",
+                    verticalAlign: "middle",
+                  }}
+                />{" "}
+                +{" "}
+                <PiCoffeeBeanFill
+                  style={{
+                    color: "#d00",
+                    verticalAlign: "middle",
+                  }}
+                />{" "}
+                {"by BenJS"}
+              </Text>
+              <a
+                href="https://ko-fi.com/sillysbs"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="https://storage.ko-fi.com/cdn/brandasset/v2/support_me_on_kofi_dark.png"
+                  w="10em"
+                  alt="Support me on Ko-fi"
+                />
+              </a>
+            </Stack>
+          </Center>
         </Grid.Col>
       </Grid>
     </MantineProvider>
@@ -426,3 +466,4 @@ function App() {
 }
 
 export default App;
+ƒ
