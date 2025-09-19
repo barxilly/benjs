@@ -29,7 +29,7 @@ body {
 .nav-card {
   position: sticky !important;
   top: 1em !important;
-  max-width: 97vw;
+  max-width: calc(100vw - 2em);
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -63,6 +63,26 @@ body {
   cursor: pointer;
   vertical-align: middle !important;
 }
+.mantine-Timeline-itemBullet{
+  position: relative;
+  overflow: hidden;
+}
+
+.mantine-Timeline-item{
+  cursor: pointer;
+}
+
+.time-icon{
+  opacity: 0;
+  transition: all 0.15s;
+  transform: translateX(-10px) scale(0.3);
+}
+
+.mantine-Timeline-item:hover .time-icon{
+  opacity: 1;
+  transform: translateX(-0px) scale(1);
+}
+
 @supports (corner-shape: squircle) {
   .nav-flex > .title {
     font-size: 1.7em !important;
@@ -165,9 +185,6 @@ body {
   cursor: pointer;
 }
 
-.card:hover {
-  transform: scale(1.005) !important;
-}
 
 .projcard:hover {
   transform: scale(1.05) !important;

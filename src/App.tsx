@@ -1,6 +1,7 @@
 import "./App.css";
 import "@mantine/core/styles.css";
 import {
+  Badge,
   Button,
   Card,
   Center,
@@ -17,17 +18,33 @@ import {
   Title,
 } from "@mantine/core";
 import {
-  FaBook,
+  FaAndroid,
+  FaApple,
+  FaBoltLightning,
+  FaChevronRight,
+  FaClock,
+  FaDebian,
   FaGithub,
-  FaGraduationCap,
-  FaHotel,
+  FaHtml5,
+  FaJava,
   FaLink,
   FaLinkedin,
-  FaPeopleGroup,
+  FaMicrosoft,
+  FaNodeJs,
+  FaPhone,
+  FaReact,
+  FaSwift,
+  FaUbuntu,
+  FaUnity,
+  FaUserGroup,
+  FaWrench,
 } from "react-icons/fa6";
 import { useState } from "react";
 import { BsFillHeartFill } from "react-icons/bs";
 import { PiCoffeeBeanFill } from "react-icons/pi";
+import { MdCss } from "react-icons/md";
+import { BiLogoTypescript } from "react-icons/bi";
+import { TbBrandCSharp } from "react-icons/tb";
 
 function App() {
   const [page, setPage] = useState<any>(1);
@@ -62,7 +79,7 @@ function App() {
             style={{ cornerStyle: "squircle" }}
           />
         </Card.Section>
-        <Stack align="center" mt="md" gap={0} style={{userSelect:"text"}}>
+        <Stack align="center" mt="md" gap={0} style={{ userSelect: "text" }}>
           <Title order={4} style={{ fontWeight: 500 }}>
             {title}
           </Title>
@@ -81,6 +98,38 @@ function App() {
           >
             View
           </Button>
+        </Stack>
+      </Card>
+    );
+  }
+
+  function project(title: string, image: string, desc: string, url: string) {
+    return (
+      <Card
+        radius="xl"
+        shadow="sm"
+        className="card projcard scrollcard"
+        onClick={() => {
+          window.open(url);
+        }}
+      >
+        <Card.Section>
+          <Image
+            src={image}
+            h="10em"
+            w="100%"
+            mx="auto"
+            radius="lg"
+            style={{ cornerStyle: "squircle" }}
+          />
+        </Card.Section>
+        <Stack align="center" mt="md">
+          <Title order={4} style={{ fontWeight: 500 }}>
+            {title}
+          </Title>
+          <Text size="sm" c="dimmed">
+            {desc}
+          </Text>
         </Stack>
       </Card>
     );
@@ -111,12 +160,47 @@ function App() {
     ),
   ];
 
+  const projects = [
+    [],
+    project(
+      "QwkSpd",
+      "https://speed.benjs.uk/qwkspd.png",
+      "A Speed Test.",
+      "https://speed.benjs.uk"
+    ),
+    project(
+      "Refine",
+      "/refine.png",
+      "Mysterious, Important, and Laggy.",
+      "https://refine.benjs.uk"
+    ),
+    project(
+      "Open WebUI macOS",
+      "/owui.png",
+      "macOS Wrapper for OWUI.",
+      "https://github.com/barxilly/OWUI/releases/tag/1.0.0"
+    ),
+    project(
+      "Dynamic DNS Updates",
+      "https://www.ipxo.com/app/uploads/2023/09/01-min-2-640x358.png",
+      "Updates a DNS with a dynamic IP.",
+      "https://github.com/barxilly/updatedynamicdns"
+    ),
+  ];
+
   return (
     <MantineProvider theme={createTheme({ fontFamily: "Fredoka" })}>
       <div className="opa" />
       <Card radius="xl" shadow="sm" className="nav-card card">
         <Flex className="nav-flex">
-          <Title className="title" onClick={()=>{window.location.href="/"}}>BenJS</Title>
+          <Title
+            className="title"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            BenJS
+          </Title>
           <Flex h="100%" justify="center" gap="sm">
             <FaGithub
               className="social"
@@ -163,11 +247,15 @@ function App() {
                 w="40%"
                 style={{ aspectRatio: "1/1" }}
               />
-              <Title style={{ fontWeight: 500, userSelect:"text" }} mt="0.6em">
+              <Title style={{ fontWeight: 500, userSelect: "text" }} mt="0.6em">
                 Ben J. Smith
               </Title>
-              <Title order={4} style={{ fontWeight: 400,userSelect:"text" }} mt={0}>
-                @BenJS
+              <Title
+                order={4}
+                style={{ fontWeight: 400, userSelect: "text" }}
+                mt={0}
+              >
+                @BenJS / @Barxilly
               </Title>
             </Stack>
           </Card>
@@ -187,7 +275,7 @@ function App() {
               <Title style={{ fontWeight: 500 }} mb="0.6em">
                 About Me
               </Title>
-              <Text style={{ fontWeight: 400,userSelect:"text" }}>
+              <Text style={{ fontWeight: 400, userSelect: "text" }}>
                 Hi, I'm Ben.
                 <br />
                 I'm currently a Computing HNC student at UHI Inverness, hoping
@@ -217,89 +305,9 @@ function App() {
               <Title style={{ fontWeight: 500 }}>Personal Projects</Title>
               <Space h="2em" />
               <div className="card-scroll-container">
-                <Card
-                  radius="xl"
-                  shadow="sm"
-                  className="card projcard scrollcard"
-                  onClick={() => {
-                    window.open("https://speed.benjs.uk");
-                  }}
-                >
-                  <Card.Section>
-                    <Image
-                      src="https://speed.benjs.uk/qwkspd.png"
-                      h="10em"
-                      w="100%"
-                      mx="auto"
-                      radius="lg"
-                      style={{ cornerStyle: "squircle" }}
-                    />
-                  </Card.Section>
-                  <Stack align="center" mt="md">
-                    <Title order={4} style={{ fontWeight: 500 }}>
-                      QwkSpd
-                    </Title>
-                    <Text size="sm" c="dimmed">
-                      A Speed Test.
-                    </Text>
-                  </Stack>
-                </Card>
-                <Card
-                  radius="xl"
-                  shadow="sm"
-                  className="card projcard scrollcard"
-                  onClick={() => {
-                    window.open("https://refine.benjs.uk");
-                  }}
-                >
-                  <Card.Section>
-                    <Image
-                      src="/refine.png"
-                      h="10em"
-                      w="100%"
-                      mx="auto"
-                      radius="lg"
-                      style={{ cornerStyle: "squircle" }}
-                    />
-                  </Card.Section>
-                  <Stack align="center" mt="md">
-                    <Title order={4} style={{ fontWeight: 500 }}>
-                      Refine
-                    </Title>
-                    <Text size="sm" c="dimmed">
-                      Mysterious and Important (and laggy)
-                    </Text>
-                  </Stack>
-                </Card>
-                <Card
-                  radius="xl"
-                  shadow="sm"
-                  className="card projcard scrollcard"
-                  onClick={() => {
-                    window.open(
-                      "https://github.com/barxilly/OWUI/releases/tag/1.0.0"
-                    );
-                  }}
-                >
-                  <Card.Section>
-                    <Image
-                      src="/owui.png"
-                      h="10em"
-                      w="100%"
-                      mx="auto"
-                      radius="lg"
-                      style={{ cornerStyle: "squircle" }}
-                    />
-                  </Card.Section>
-                  <Stack align="center" mt="md">
-                    <Title order={4} style={{ fontWeight: 500 }}>
-                      Open WebUI macOS
-                    </Title>
-                    <Text size="sm" c="dimmed">
-                      A macOS wrapper for OWUI servers.
-                    </Text>
-                  </Stack>
-                </Card>
+                {projects.slice(1).map((proj) => (
+                  <>{proj}</>
+                ))}
               </div>
             </Stack>
           </Card>
@@ -341,16 +349,43 @@ function App() {
             radius="xl"
             shadow="sm"
             className="card"
-            style={{ backgroundColor: "#cfe4f6ff",userSelect:"text" }}
+            style={{ backgroundColor: "#cfe4f6ff", userSelect: "none" }}
           >
             <Grid>
               <Grid.Col span={{ base: 12, md: 6 }}>
                 <Stack align="center" p="1em" gap="1em">
                   <Title>Education</Title>
-                  <Timeline active={50} radius="xl" w="100%">
+                  <Timeline
+                    active={50}
+                    radius="xl"
+                    bulletSize="40"
+                    lineWidth="3"
+                    w="100%"
+                  >
                     <Timeline.Item
-                      title="HNC Computing"
-                      bullet={<FaGraduationCap />}
+                      title={
+                        <Flex className="time-flex" align="center" gap="0.3em">
+                          <span>HNC Computing</span>
+                          <FaChevronRight size="0.75em" className="time-icon" />
+                        </Flex>
+                      }
+                      onClick={() => {
+                        window.open(
+                          "https://www.uhi.ac.uk/en/courses/hnc-computing/"
+                        );
+                      }}
+                      bullet={
+                        <Image
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD1BUc56Jq_isXT-KLtdRT3VXGT8-LJorSgg&s"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      }
                     >
                       <Text c="dimmed" size="sm">
                         UHI Inverness (2025-Present)
@@ -361,8 +396,29 @@ function App() {
                       </Text>
                     </Timeline.Item>
                     <Timeline.Item
-                      title="A Levels"
-                      bullet={<FaBook style={{ padding: "0.1em" }} />}
+                      title={
+                        <Flex className="time-flex" align="center" gap="0.3em">
+                          <span>A Levels</span>
+                          <FaChevronRight size="0.75em" className="time-icon" />
+                        </Flex>
+                      }
+                      onClick={() => {
+                        window.open(
+                          "https://www.tavistockcollege.org/Sixth-Form-Curriculum/"
+                        );
+                      }}
+                      bullet={
+                        <Image
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIbwVHzSuNnHABFsK8dAux8Fhu3TAoTITHsQ&s"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      }
                     >
                       <Text c="dimmed" size="sm">
                         Tavistock College (2023-2025)
@@ -378,10 +434,35 @@ function App() {
               <Grid.Col span={{ base: 12, md: 6 }}>
                 <Stack align="center" p="1em" gap="1em">
                   <Title>Experience</Title>
-                  <Timeline active={5} radius="xl" w="100%">
+                  <Timeline
+                    active={5}
+                    radius="xl"
+                    bulletSize="40"
+                    lineWidth="3"
+                    w="100%"
+                  >
                     <Timeline.Item
-                      title="Housekeeping"
-                      bullet={<FaHotel style={{ padding: "0.07em" }} />}
+                      title={
+                        <Flex className="time-flex" align="center" gap="0.3em">
+                          <span>Housekeeping</span>
+                          <FaChevronRight size="0.75em" className="time-icon" />
+                        </Flex>
+                      }
+                      onClick={() => {
+                        window.open("https://www.jdwetherspoon.com/");
+                      }}
+                      bullet={
+                        <Image
+                          src="https://play-lh.googleusercontent.com/z7-lQWmni61-yauwqyqNcvJgx3ZjWcE2sHGIOLWi84s7QZlCRSRZrYdKvo81i6rU7Kzn"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      }
                     >
                       <Text c="dimmed" size="sm">
                         JD Wetherspoon (2025-Present)
@@ -394,8 +475,27 @@ function App() {
                       </Text>
                     </Timeline.Item>
                     <Timeline.Item
-                      title="Member Pioneer"
-                      bullet={<FaPeopleGroup />}
+                      title={
+                        <Flex className="time-flex" align="center" gap="0.3em">
+                          <span>Member Pioneer</span>
+                          <FaChevronRight size="0.75em" className="time-icon" />
+                        </Flex>
+                      }
+                      onClick={() => {
+                        window.open("https://coop.co.uk/");
+                      }}
+                      bullet={
+                        <Image
+                          src="https://images.ctfassets.net/5ywmq66472jr/DOAxDxBb2gK0o2UQMMSeA/0a1a1d577a72914d081f513ecca93ba8/co-op-white-logo-on-blue.png"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      }
                     >
                       <Text c="dimmed" size="sm">
                         Co-op Group (2023-2024)
@@ -407,22 +507,178 @@ function App() {
                       </Text>
                     </Timeline.Item>
                     <Timeline.Item
-                      title="Web Design Work Experience"
-                      bullet={<FaPeopleGroup />}
+                      title={
+                        <Flex className="time-flex" align="center" gap="0.3em">
+                          <span>Web Design Training</span>
+                          <FaChevronRight size="0.75em" className="time-icon" />
+                        </Flex>
+                      }
+                      onClick={() => {
+                        window.open("https://www.splashdamage.com/");
+                      }}
+                      bullet={
+                        <Image
+                          src="https://media.licdn.com/dms/image/v2/C4E22AQEb0oNPCZJHEA/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1663185066344?e=2147483647&v=beta&t=Cd-M7DM_dgtNxlOIpEy6LjVVpP1NcLuA3ZxnpCkRUdI"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      }
                     >
                       <Text c="dimmed" size="sm">
                         Splash Damage (2022)
                       </Text>
                       <Text>
-                        A work experience learning how websites are designed in
-                        a production setting, and the best methods for designing
-                        for a range of users.
+                       Helping and learning how to design responsive and eye-catching websites for a range of users.
                       </Text>
                     </Timeline.Item>
                   </Timeline>
                 </Stack>
               </Grid.Col>
             </Grid>
+          </Card>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12 }}>
+          <Card className="card" radius="xl" shadow="sm">
+            <Stack align="center">
+              <Title>Skills</Title>
+              <Title order={3}>Languages & Frameworks</Title>
+              <Flex gap="md" align="center" wrap="wrap" justify="center">
+                <Badge color="green" size="lg" leftSection={<FaNodeJs />}>
+                  Node.JS
+                </Badge>
+                <Badge color="blue" size="lg" leftSection={<FaReact />}>
+                  React
+                </Badge>
+                <Badge color="red" size="lg" leftSection={<FaHtml5 />}>
+                  HTML
+                </Badge>
+                <Badge
+                  color="rebeccapurple"
+                  size="lg"
+                  leftSection={<MdCss size="2em" />}
+                >
+                  CSS
+                </Badge>
+                <Badge
+                  color="darkblue"
+                  size="lg"
+                  leftSection={<BiLogoTypescript />}
+                >
+                  TypeScript
+                </Badge>
+                <Badge color="orange" size="lg" leftSection={<FaSwift />}>
+                  Swift
+                </Badge>
+                <Badge color="purple" size="lg" leftSection={<TbBrandCSharp />}>
+                  C#
+                </Badge>
+                <Badge color="gray" size="lg" leftSection={<FaUnity />}>
+                  Unity
+                </Badge>
+                <Badge color="#e95a2aff" size="lg" leftSection={<FaJava />}>
+                  Java
+                </Badge>
+              </Flex>
+              <Title order={3}>Operating Systems</Title>
+              <Flex gap="md" align="center" wrap="wrap" justify="center">
+                <Badge
+                  color="blue"
+                  size="lg"
+                  style={{ color: "lightblue" }}
+                  leftSection={<FaMicrosoft />}
+                >
+                  Windows 8 / 10 / 11
+                </Badge>
+                <Badge
+                  color="black"
+                  size="lg"
+                  style={{ color: "lightgray" }}
+                  leftSection={<FaApple />}
+                >
+                  macOS
+                </Badge>
+                <Badge
+                  color="red"
+                  size="lg"
+                  style={{ color: "#ffb8b8ff" }}
+                  leftSection={<FaDebian />}
+                >
+                  Debian
+                </Badge>
+                <Badge
+                  color="#ff8e56ff"
+                  size="lg"
+                  style={{ color: "#ffd8b8ff" }}
+                  leftSection={<FaUbuntu />}
+                >
+                  Ubuntu
+                </Badge>
+                <Badge
+                  color="green"
+                  size="lg"
+                  style={{ color: "#caffb8ff" }}
+                  leftSection={<FaAndroid />}
+                >
+                  Android
+                </Badge>
+                <Badge
+                  color="black"
+                  size="lg"
+                  style={{ color: "lightgray" }}
+                  leftSection={<FaApple />}
+                >
+                  iOS
+                </Badge>
+              </Flex>
+              <Title order={3}>General Skills</Title>
+              <Flex gap="md" align="center" wrap="wrap" justify="center">
+                <Badge
+                  color="white"
+                  size="lg"
+                  style={{ color: "black",border:"2px solid black" }}
+                  leftSection={<FaClock />}
+                >
+                  Time Management
+                </Badge>
+                <Badge
+                  color="white"
+                  size="lg"
+                  style={{ color: "black",border:"2px solid black" }}
+                  leftSection={<FaPhone />}
+                >
+                  Communication
+                </Badge>
+                <Badge
+                  color="white"
+                  size="lg"
+                  style={{ color: "black",border:"2px solid black" }}
+                  leftSection={<FaUserGroup />}
+                >
+                  Teamworking
+                </Badge>
+                <Badge
+                  color="white"
+                  size="lg"
+                  style={{ color: "black",border:"2px solid black" }}
+                  leftSection={<FaWrench />}
+                >
+                  Adaptability
+                </Badge>
+                <Badge
+                  color="white"
+                  size="lg"
+                  style={{ color: "black",border:"2px solid black" }}
+                  leftSection={<FaBoltLightning />}
+                >
+                  Quick Learning
+                </Badge>
+              </Flex>
+            </Stack>
           </Card>
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
@@ -465,6 +721,7 @@ function App() {
               </a>
             </Stack>
           </Center>
+          <Space h="md" />
         </Grid.Col>
       </Grid>
     </MantineProvider>
