@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background: -webkit-linear-gradient(45deg, #dde8f0, #b1d4e2) !important;
+  background: -webkit-linear-gradient(90deg, #dde8f0, #abd9eb) !important;
   user-select: none;
 }
 
@@ -164,10 +164,20 @@ body {
 .card {
   corner-shape: squircle;
   background: #edf2f7ff;
-  border: 3px solid #edf2f7ff;
+  border: 3px solid rgba(237, 242, 247, 0.671);
   height: 100%;
   min-height: 0;
   transition: all 0.8s;
+}
+
+.mantine-Badge-root{
+  transition: 0.3s all;
+  opacity: 0.8;
+}
+
+.mantine-Badge-root:hover{
+  opacity: 1;
+  transform: scale(1.03) translateY(-1px);
 }
 
 .opa {
@@ -183,6 +193,7 @@ body {
 .projcard {
   transition: all 0.4s;
   cursor: pointer;
+  width: 1em !important;
 }
 
 
@@ -220,8 +231,8 @@ body {
 }
 
 .scrollcard {
-  min-width: 19em;
-  max-width: 19em;
+  width: 19em;
+  max-width: 60vw !important;
   flex: 0 0 19em;
   scroll-snap-align: start;
 }

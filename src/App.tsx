@@ -20,6 +20,7 @@ import {
 import {
   FaAndroid,
   FaApple,
+  FaBluesky,
   FaBoltLightning,
   FaChevronRight,
   FaClock,
@@ -51,6 +52,10 @@ function App() {
 
   function supportsCornerShape() {
     return CSS.supports("corner-shape: round");
+  }
+
+  function isMobile(){
+    return window.innerWidth < 445;
   }
 
   function cert(
@@ -208,7 +213,7 @@ function App() {
                 window.open("https://github.com/barxilly");
               }}
             />
-            {supportsCornerShape() ? (
+            {supportsCornerShape() && !isMobile()? (
               <Text
                 className="social qwkspd"
                 onClick={() => {
@@ -226,6 +231,12 @@ function App() {
                 window.open("https://www.linkedin.com/in/benjsuk/1");
               }}
             />
+            <FaBluesky
+              className="social"
+              onClick={() => {
+                window.open("https://bsky.app/profile/benjs.uk");
+              }}
+            />
           </Flex>
         </Flex>
       </Card>
@@ -237,14 +248,15 @@ function App() {
             shadow="sm"
             className="card"
             h="100%"
+            
             style={{ backgroundColor: "#e0edf9ff" }}
           >
             <Stack align="center" pt="3em" pb="3em" gap={0}>
               <Image
-                src="https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png"
+                src="/b.png"
                 radius="50%"
                 h="auto"
-                w="40%"
+                w="50%"
                 style={{ aspectRatio: "1/1" }}
               />
               <Title style={{ fontWeight: 500, userSelect: "text" }} mt="0.6em">
@@ -300,9 +312,9 @@ function App() {
           </Card>
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Card radius="xl" shadow="sm" className="card">
+          <Card radius="xl" shadow="sm" className="card" bg="rgba(192, 229, 255, 1)">
             <Stack align="center" pt="3em" pb="3em" gap={0}>
-              <Title style={{ fontWeight: 500 }}>Personal Projects</Title>
+              <Title style={{ fontWeight: 500,textAlign:"center" }}>Personal Projects</Title>
               <Space h="2em" />
               <div className="card-scroll-container">
                 {projects.slice(1).map((proj) => (
@@ -321,7 +333,7 @@ function App() {
               shadow="sm"
               className="card"
               style={{
-                backgroundColor: "#f3f7fbff",
+                backgroundColor: "#d8e6f4ff",
                 overflow: "auto",
                 flex: 1,
                 display: "flex",
@@ -543,10 +555,10 @@ function App() {
           </Card>
         </Grid.Col>
         <Grid.Col span={{ base: 12 }}>
-          <Card className="card" radius="xl" shadow="sm">
+          <Card className="card" radius="xl" shadow="sm" bg="rgba(150, 211, 255, 1)">
             <Stack align="center">
               <Title>Skills</Title>
-              <Title order={3}>Languages & Frameworks</Title>
+              <Title order={3} style={{textAlign:"center"}}>Languages & Frameworks</Title>
               <Flex gap="md" align="center" wrap="wrap" justify="center">
                 <Badge color="green" size="lg" leftSection={<FaNodeJs />}>
                   Node.JS
